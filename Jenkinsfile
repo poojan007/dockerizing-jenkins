@@ -1,10 +1,16 @@
 pipeline {
   environment {
-    registry = "aktechthoughts/simplilearn-devops-certification"
+    registry = "thukten/dockerizing-jenkins-pipeline"
     registryCredential = 'dockerhub'
   }
   agent any
   stages {
+	stage('Cloning Git') {
+	steps {
+		git 'https://github.com/thukten/dockerizing-jenkins.git'
+	      }
+	}
+
         stage('Building image') {
         steps{
             script {
@@ -33,7 +39,7 @@ pipeline {
 
 node {
     stage('Execute Image'){
-        def customImage = docker.build("aktechthoughts/simplilearn-devops-certification:${env.BUILD_NUMBER}")
+        def customImage = docker.build("thukten/dockerizing-jenkins-pipeline:${env.BUILD_NUMBER}")
         customImage.inside {
             sh 'echo This is the code executing inside the container.'
         }
