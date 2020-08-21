@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "thukten/dockerizing-jenkins-pipeline"
+    registry = "thukten/simplilearn"
     registryCredential = 'dockerhub'
   }
   agent any
