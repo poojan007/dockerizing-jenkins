@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "poojansharma/test"
-    registryCredential = 'dockerhub'
+    registryCredential = 'poojandockerhub'
   }
   agent any
   stages {
@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy Image') {
         steps{
             script {
-            docker.withRegistry( '', 'dockerhub' ) {
+            docker.withRegistry( '', 'poojandockerhub' ) {
                 dockerImage.push()
             }
             }
