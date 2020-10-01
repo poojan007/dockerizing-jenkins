@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "poojansharma/test"
+    registry = "poojansharma/dockerizing-jenkins-pipeline"
     registryCredential = 'poojandockerhub'
   }
   agent any
@@ -39,7 +39,7 @@ pipeline {
 
 node {
     stage('Execute Image'){
-        def customImage = docker.build("thukten/dockerizing-jenkins-pipeline:${env.BUILD_NUMBER}")
+        def customImage = docker.build("poojansharma/dockerizing-jenkins-pipeline:${env.BUILD_NUMBER}")
         customImage.inside {
             sh 'echo This is the code executing inside the container.'
         }
