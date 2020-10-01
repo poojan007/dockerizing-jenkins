@@ -1,13 +1,13 @@
 pipeline {
   environment {
-    registry = "thukten/simplilearn"
-    registryCredential = 'dockerhub'
+    registry = "poojansharma/dockerizing-jenkins-pipeline"
+    registryCredential = 'poojandockerhub'
   }
   agent any
   stages {
 	stage('Cloning Git') {
 	steps {
-		git 'https://github.com/thukten/dockerizing-jenkins.git'
+		git 'https://github.com/poojan007/dockerizing-jenkins.git'
 	      }
 	}
 
